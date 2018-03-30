@@ -13,7 +13,9 @@ Require via composer
 
 ### Usage:
 * you can path the search feild as array of keys and values of person data
-Pipl::search(['first_name'=> ' ', 'last_name'=>' ', 'email'=>' ',....]);
+* Example:
+
+Pipl::search(['first_name'=> 'john', 'last_name'=>'doe', 'email'=>'example@example.com']);
 
 Getting Started & Code Snippets
 -------------------------------
