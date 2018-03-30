@@ -12,11 +12,7 @@ class Pipl
         $this->key = env('PIPL_KEY');
         $this->url = "http://api.pipl.com/search/?&key=".$this->key;
     }
-    public function test()
-    {
-        dd('dd');
-    }
-    
+ 
     public function search(array $array_of_feilds)
     {
         if(empty($array_of_feilds)){
