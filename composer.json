@@ -1,0 +1,33 @@
+{
+    "name": "abdelrahmanbadr/pipl-laravel",
+    "description": "Pipl Laravel Package",
+    "license": "MIT",
+    "keywords": [
+        "pipl",
+        "laravel",
+        "api",
+	      "social"
+    ],
+    "authors": [
+      {
+        "name": "Abdelrahman Badr El Deen",
+        "email": "abdelrahmanbadr.it@gmail.com"
+      }
+    ],
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Abdelrahman_badr\\Pipl\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Abdelrahman_badr\\Pipl\\PipleServiceProvider"
+        ],
+        "aliases": {
+            "Pipl": "Abdelrahman_badr\\Pipl\\Facades\\Pipl"
+        }
+      }
+    }
+  }
