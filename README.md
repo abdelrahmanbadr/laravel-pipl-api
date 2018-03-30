@@ -1,18 +1,7 @@
-# laravel-pipl-api
-Laravel 5 FullContact API
-In your .env file set FullContact API key in FULLCONTACT_API_KEY
-[php artisan vendor:publish --provider="Akaramires\FullContact\FullContactServiceProvider"]
-In your app/config/app.php add provider:
-'Akaramires\FullContact\FullContactServiceProvider'
-In your app/config/app.php add alias:
-'FullContact' => Akaramires\FullContact\FullContactFacade::class,
+# Laravel-pipl-api
+In your .env file set FullContact API key in PIPL_API_KEY
+composer require abdelrahmanbadr/pipl-laravel
+
 Usage:
-Lookup by email: * $person = FullContact::lookupByEmail( 'shawn@mantelope.io' );
+Pipl::search(['first_name'=> '','last_name'=>'','email'=>'',....]);
 
-Lookup by phone: * $person = FullContact::lookupByPhone( '123-456-7890' );
-
-Lookup by Twitter: * $person = FullContact::lookupByTwitter( 'MantelopeMusk' );
-
-Lookup by Facebook: & $person = FullContact::lookupByFacebook( 'mike-corkum' ,'US' ); * countryCode parameter defaults to US if not provided *
-
-Account Stats: & $stats = FullContact::accountStats( '2012-08' ); * Period parameter is optional *
