@@ -12,7 +12,7 @@ Require via composer
 * In your .env file set Pipl API key in PIPL_API_KEY
 
 ### Usage:
-* you can path the search feild as array of keys and values of person data
+* you can path the search feilds as array of keys and values of person data
 * Example: Pipl::search(['first_name'=> 'john', 'last_name'=>'doe', 'email'=>'example@example.com']);
 
 Getting Started & Code Snippets
