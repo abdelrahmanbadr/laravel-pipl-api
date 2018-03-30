@@ -9,7 +9,7 @@ class Pipl
     public $base_url ;
     public function __construct()
     {
-        $this->key = env('PIPL_KEY');
+        $this->key = env('PIPL_API_KEY');
         $this->url = "http://api.pipl.com/search/?&key=".$this->key;
     }
  
