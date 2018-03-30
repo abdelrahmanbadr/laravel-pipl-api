@@ -3,7 +3,7 @@ A Laravel Pckage connecting your application to pipl api
 
 ## Installation
 
-Laravel Messenger supports Laravel 5.5 and higher.
+Laravel Pipl API supports Laravel 5.5 and higher.
 
 ### Package
 Require via composer
@@ -13,9 +13,7 @@ Require via composer
 
 ### Usage:
 * you can path the search feild as array of keys and values of person data
-* Example:
-
-Pipl::search(['first_name'=> 'john', 'last_name'=>'doe', 'email'=>'example@example.com']);
+* Example: Pipl::search(['first_name'=> 'john', 'last_name'=>'doe', 'email'=>'example@example.com']);
 
 Getting Started & Code Snippets
 -------------------------------
