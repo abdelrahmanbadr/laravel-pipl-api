@@ -36,7 +36,7 @@ class Pipl
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         $output = curl_exec($ch); 
         curl_close($ch);  
-        $result = json_decode((string)$output);
+        $result = json_decode($output);
         return $result;
         
     }
