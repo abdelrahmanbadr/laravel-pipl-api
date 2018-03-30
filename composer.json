@@ -1,6 +1,7 @@
 {
     "name": "abdelrahmanbadr/pipl-laravel",
     "description": "Pipl Laravel Package",
+    "minimum-stability": "dev",
     "license": "MIT",
     "keywords": [
         "pipl",
