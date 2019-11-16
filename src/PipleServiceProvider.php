@@ -11,9 +11,8 @@ class PipleServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot() 
+    public function boot()
     {
-        
     }
 
     /**
@@ -23,8 +22,6 @@ class PipleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-    
-        $this->app->instance('Pipl',  new  \Abdelrahman_badr\Pipl\Pipl());
-        
+        $this->app->instance('Pipl', new  \Abdelrahman_badr\Pipl\Pipl());
     }
 }
