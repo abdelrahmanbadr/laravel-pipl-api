@@ -34,8 +34,8 @@ class Pipl
     protected function buildUrl(array $fields)
     {
         $key = env('PIPL_API_KEY');
-        $baseUrl = rtrim(env('PIPL_API_BASE_URL', 'http://api.pipl.com/search/'), '/') . '/';
-        $url = $baseUrl . "?key={$key}";
+        $baseUrl = rtrim(env('PIPL_API_BASE_URL', 'http://api.pipl.com/search/'), '/');
+        $url = $baseUrl . "/?key={$key}";
 
         foreach ($fields as $key => $value) {
             $url .= "&$key=$value";
