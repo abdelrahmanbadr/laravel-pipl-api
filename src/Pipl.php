@@ -13,10 +13,6 @@ use GuzzleHttp\ClientInterface;
  */
 class Pipl
 {
-
-    /**
-     * @var ClientInterface
-     */
     protected $client;
 
     public function __construct(ClientInterface $client = null)
@@ -24,31 +20,27 @@ class Pipl
         $this->client = $client ?? (new Client());
     }
 
-    /**
-     * @param array $arrayOfFields
-     * @return mixed
-     * @throws Exception
-     */
-    public function search(array $arrayOfFields)
+    public function search(array $fields)
     {
-        if (empty($arrayOfFields)) {
-            $error = "Search function parameter can't be empty";
-            throw new Exception($error);
+        if (empty($fields)) {
+            throw new Exception("Search function parameter can't be empty");
         }
         
-        $url = $this->buildUrl($arrayOfFields);
+        $url = $this->buildUrl($fields);
         $response = $this->client->get($url);
         return json_decode($response->getBody(), true);
     }
 
-    protected function buildUrl(array $arrayOfFields)
+    protected function buildUrl(array $fields)
     {
         $key = env('PIPL_API_KEY');
-        $url = env('PIPL_API_BASE_URL', 'http://api.pipl.com/search/') . "?key={$key}";
-        foreach ($arrayOfFields as $key => $value) {
-            $url .= "&$key=$value";
+        $baseUrl = rtrim(env('PIPL_API_BASE_URL', 'http://api.pipl.com/search/'), '/') . '/';
+        $url = $baseUrl . "?key={$key}";
 
+        foreach ($fields as $key => $value) {
+            $url .= "&$key=$value";
         }
+
         return $url;
     }
 }
