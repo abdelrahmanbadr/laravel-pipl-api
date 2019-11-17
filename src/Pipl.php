@@ -35,11 +35,7 @@ class Pipl
             $error = "Search function parameter can't be empty";
             throw new Exception($error);
         }
-        $url = "";
-        foreach ($arrayOfFields as $key => $value) {
-            $url = "$url&$key=$value";
-
-        }
+        
         $url = $this->buildUrl($arrayOfFields);
         $response = $this->client->get($url);
         return json_decode($response->getBody(), true);
