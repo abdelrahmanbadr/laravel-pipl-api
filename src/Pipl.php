@@ -4,39 +4,55 @@ namespace Abdelrahman_badr\Pipl;
 
 use Exception;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+
+/**
+ * Class Pipl
+ * @package Abdelrahman_badr\Pipl
+ */
 class Pipl
 {
-    public $key;
 
-    public function __construct()
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
+
+    public function __construct(ClientInterface $client = null)
     {
-        $this->key = env('PIPL_API_KEY');
-        $this->url = (env('PIPL_API_BASE_URL') || "http://api.pipl.com/search/") . "?key={$this->key}";
+        $this->client = $client ?? (new Client());
     }
 
-    public function search(array $array_of_fields)
+    /**
+     * @param array $arrayOfFields
+     * @return mixed
+     * @throws Exception
+     */
+    public function search(array $arrayOfFields)
     {
-        if (empty($array_of_fields)) {
-            $error = "search function parameter can't be empty";
+        if (empty($arrayOfFields)) {
+            $error = "Search function parameter can't be empty";
             throw new Exception($error);
         }
         $url = "";
-        foreach ($array_of_fields as $key => $value) {
+        foreach ($arrayOfFields as $key => $value) {
             $url = "$url&$key=$value";
 
         }
-        $this->url = $this->url . $url;
-        return $this->piplSearch();
+        $url = $this->buildUrl($arrayOfFields);
+        $response = $this->client->get($url);
+        return json_decode($response->getBody(), true);
     }
 
-    private function piplSearch()
+    protected function buildUrl(array $arrayOfFields)
     {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($ch);
-        curl_close($ch);
-        $result = json_decode($output);
-        return $result;
+        $key = env('PIPL_API_KEY');
+        $url = env('PIPL_API_BASE_URL', 'http://api.pipl.com/search/') . "?key={$key}";
+        foreach ($arrayOfFields as $key => $value) {
+            $url .= "&$key=$value";
+
+        }
+        return $url;
     }
 }

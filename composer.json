@@ -1,34 +1,42 @@
 {
-    "name": "abdelrahmanbadr/pipl-laravel",
-    "description": "Pipl Laravel Package",
-    "minimum-stability": "dev",
-    "license": "MIT",
-    "keywords": [
-        "pipl",
-        "laravel",
-        "api",
-	      "social"
-    ],
-    "authors": [
-      {
-        "name": "Abdelrahman Badr El Deen",
-        "email": "abdelrahmanbadr.it@gmail.com"
-      }
-    ],
-    "require": {},
-    "autoload": {
-      "psr-4": {
-        "Abdelrahman_badr\\Pipl\\": "src/"
-      }
-    },
-    "extra": {
-      "laravel": {
-        "providers": [
-          "Abdelrahman_badr\\Pipl\\PipleServiceProvider"
-        ],
-        "aliases": {
-            "Pipl": "Abdelrahman_badr\\Pipl\\Facades\\Pipl"
-        }
+  "name": "abdelrahmanbadr/pipl-laravel",
+  "description": "Pipl Laravel Package",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "keywords": [
+    "pipl",
+    "laravel",
+    "api",
+    "social"
+  ],
+  "authors": [
+    {
+      "name": "Abdelrahman Badr ElDeen",
+      "email": "abdelrahmanbadr.it@gmail.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "~6.0",
+    "vlucas/phpdotenv": "^4.0@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0",
+    "mockery/mockery": "^1.2",
+    "illuminate/support": "^5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Abdelrahman_badr\\Pipl\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Abdelrahman_badr\\Pipl\\PipleServiceProvider"
+      ],
+      "aliases": {
+        "Pipl": "Abdelrahman_badr\\Pipl\\Facades\\Pipl"
       }
     }
   }
+}
